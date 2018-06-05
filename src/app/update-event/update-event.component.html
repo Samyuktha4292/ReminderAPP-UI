@@ -1,0 +1,10 @@
+
+    <p>
+      Event Name <input type="text" name="ename" required [(ngModel)]="updatedEventName">
+      Event Date <input type="date" name="edate" required [(ngModel)]="updatedEventDate"><br>
+      Event Time <input type="time" name="etime" required [(ngModel)]="updatedEventTime"><br>
+    </p>
+    <button class="event-create-button" (click)="updateEvent">Update Me ! </button>
+    <div class="col-sm-12 login-error-msg" [hidden]="!msg">
+      <span class="">{{msg}}</span>
+    </div>

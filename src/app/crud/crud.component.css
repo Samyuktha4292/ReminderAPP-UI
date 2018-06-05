@@ -1,0 +1,34 @@
+.input-box{
+    border: 1px solid #ccc !important;
+    width: 200px !important;
+}
+
+.create-bckgrnd{
+/*background-color:#6e9aa0;*/
+padding:20px;
+}
+.blue{
+    background-color: #46b8da;
+}
+.float-right{
+    float:right;
+}
+
+.container{background-color: #eafeff}
+
+.border-cls{
+        border: 1px solid #ccc;
+}
+
+.crud-header{
+        text-align: center;
+    font-style: italic;
+    color: #307bb3;
+    font-weight: 500;
+    font-size: 35px;
+    font-family: serif;
+    padding-top: 25px;
+}
+
+
+.logout-style { font-size: 15px;font-weight: 500; color: #355b60 !important;line-height: 25px;cursor: pointer;}

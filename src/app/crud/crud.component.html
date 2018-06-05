@@ -1,0 +1,61 @@
+<div class="container">
+    <h3 class="crud-header">Create your memories and be up to date with it!!</h3>
+    <div class="float-right logout-style">
+        <a class="logout-style" (click)="logout()" routerLinkActive="active" class="inter-gap cursor-pointer">Log Out</a>
+    </div>
+    <br><br>
+    <h2>Create your memories and be up to date with it!!</h2>
+     <button type="button" class="btn btn-primary2" data-toggle="collapse" data-target="#googleCalanderEvent">Create Memories</button> <br><br>
+     <div id="googleCalanderEvent" class="collapse create-bckgrnd">
+         <div>
+             <br>
+             Event Summary &nbsp;&nbsp;&nbsp; <input type="text" name="eventsummary" class="input-box" style="width: 215px !important;" required [(ngModel)]="eventsummary">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Event Start Time &nbsp;&nbsp;&nbsp;<input type="datetime-local" name="startdatetime" class="input-box"
+                                                       required [(ngModel)]="eventstartdate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Event End Time &nbsp;&nbsp;&nbsp;<input type="datetime-local" name="eventenddate" class="input-box" required [(ngModel)]="eventenddate"><br>
+         </div>
+         <div class="float-right">
+             <button type="button" class="btn btn-info blue" (click)="googleCreateEvent()">Add to Calendar</button>
+
+         </div>
+         <div class="col-sm-12 login-error-msg" [hidden]="!msgCalanderEvent">
+             <span class="">{{msgCalanderEvent}}</span>
+         </div>
+         <br> <br>
+     </div>
+     <button type="button" class="btn btn-primary" (click)="viewEvents()" data-toggle="collapse" data-target="#viewEvents">View Memories</button>
+    <div id="viewEvents" class="collapse">
+
+    <table>
+      <tr>
+          <th style="width:180px;">
+          <span>Event Name </span>
+        </th>
+        <th style="width:180px;">
+          <span> Event Start Date </span>
+        </th>
+        <th style="width:180px;">
+          <span>Event End Date </span>
+        </th>
+        <th style="width:180px;">
+          <span>Action </span>
+        </th>
+        
+      </tr>
+      <tbody>
+        <tr *ngFor="let eachRow of eventJSONList;let index = index;trackBy:trackByIndex;">
+          <td><input type="text" value={{eachRow.summary}} [(ngModel)]="eventJSONList[index].eventsummary"> </td>
+            <td><input type="datetime-local" value={{eachRow.eventstartdate}} [(ngModel)]="eventJSONList[index].eventstartdate"></td>
+            <td><input type="datetime-local" value={{eachRow.eventEndDate}} [(ngModel)]="eventJSONList[index].eventenddate"></td>
+          <td><button type="button" (click)="updateEvent(eachRow)">Update Event</button></td>
+        </tr>
+      </tbody>
+    </table>
+      <div [hidden]="eventJSONList?.length>0">
+          <div class="col-sm-12 col-md-12 col-lg-12"> Currently you have no events to view.</div>
+      </div>
+
+      <div class="col-sm-12 login-error-msg" [hidden]="!updateMsg">
+      <span class="">{{updateMsg}}</span>
+    </div>
+  </div>
